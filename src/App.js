@@ -30,7 +30,7 @@ const App = () => {
         </Grid>
         <Grid item xs="auto" md="auto">
           {contacts.map((contact, index) => (
-            <Contact contact={contact} key={index} />
+            <Contact data={contact} key={index} />
           ))}
         </Grid>
       </Grid>
