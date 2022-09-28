@@ -23,8 +23,9 @@ const ContactForm = ({ handleNewContact }) => {
           id="outlined-basic"
           label="Name"
           variant="outlined"
+          value={newContact.name}
           onChange={(e) => {
-            setNewContact([...newContact, e.target.value]);
+            setNewContact({ ...newContact, name: e.target.value });
           }}
         />
         <TextField
@@ -32,8 +33,9 @@ const ContactForm = ({ handleNewContact }) => {
           id="outlined-basic"
           label="Phone"
           variant="outlined"
+          value={newContact.phone}
           onChange={(e) => {
-            setNewContact([...newContact, e.target.value]);
+            setNewContact({ ...newContact, phone: e.target.value });
           }}
         />
         <TextField
@@ -41,16 +43,18 @@ const ContactForm = ({ handleNewContact }) => {
           id="outlined-basic"
           label="Email"
           variant="outlined"
+          value={newContact.email}
           onChange={(e) => {
-            setNewContact([...newContact, e.target.value]);
+            setNewContact({ ...newContact, email: e.target.value });
           }}
         />
         <TextField
           id="outlined-basic"
           label="Photo URL ▼"
           variant="outlined"
+          value={newContact.photo}
           onChange={(e) => {
-            setNewContact([...newContact, e.target.value]);
+            setNewContact({ ...newContact, photo: e.target.value });
           }}
         />
       </CardContent>
@@ -58,15 +62,15 @@ const ContactForm = ({ handleNewContact }) => {
         <Button
           size="small"
           onClick={() => {
-            handleNewContact({
-              name: newContact[0],
-              phone: newContact[1],
-              email: newContact[2],
-              photo: newContact[3]
-                ? newContact[3]
-                : "http://placekitten.com/600",
-            });
-            setNewContact("");
+            newContact.photo
+              ? handleNewContact(newContact)
+              : handleNewContact({
+                  name: newContact.name,
+                  phone: newContact.phone,
+                  email: newContact.email,
+                  photo: "http://placekitten.com/600",
+                });
+            setNewContact({ name: "", phone: "", email: "", photo: "" });
           }}
         >
           ADD NEW

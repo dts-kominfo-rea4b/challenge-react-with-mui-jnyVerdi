@@ -13,19 +13,17 @@ import Card from "@mui/material/Card";
 // atau langsung tambahkan dengan sx={{}}
 const Contact = ({ contact }) => {
   // Contact berisi foto, nama, telepon, dan email
+  console.log(contact);
   return (
     <Card sx={{ minWidth: "auto" }}>
       <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
         <ListItem>
           <ListItemAvatar>
-            <Avatar
-              alt={contact.name}
-              src={contact.photo}
-              sx={{ width: 56, height: 56 }}
-            />
+            <Avatar src={contact.photo} />
+            <ListItemText primary={contact.name} />
+            <ListItemText primary={contact.phone} />
+            <ListItemText primary={contact.email} />
           </ListItemAvatar>
-          <ListItemText primary={contact.name} secondary={contact.phone} />
-          <ListItemText secondary={contact.email} />
         </ListItem>
       </List>
     </Card>
