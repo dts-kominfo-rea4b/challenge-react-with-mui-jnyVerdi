@@ -13,7 +13,6 @@ import Card from "@mui/material/Card";
 // atau langsung tambahkan dengan sx={{}}
 const Contact = ({ contact }) => {
   // Contact berisi foto, nama, telepon, dan email
-  console.log(contact);
   return (
     <Card sx={{ minWidth: "auto" }}>
       <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
